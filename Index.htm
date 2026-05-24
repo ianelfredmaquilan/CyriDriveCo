@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>CYRI DRIVE CO.</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 5;
+            color: rgb(247, 5, 5);
+        }
+        button {
+            cursor: pointer;
+        }
+
+        #landing {
+            height: 100vh;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            text-align: center;
+            background: url('https://images.unsplash.com/photo-1503376780353-7e6692767b70') no-repeat center center/cover;
+            color: rgb(245, 5, 5);
+        }
+        #landing button {
+            padding: 15px 30px;
+            font-size: 25px;
+            border: none;
+            border-radius: 8px;
+            background: white;
+            color: rgb(248, 4, 4);
+            margin-top: 20px;
+        }
+        #landing button:hover {
+            background: #ddd;
+        }
+        #landing::before {
+            content:"";
+            position: absolute;
+            top:0; left:0;
+            width:100%; height:100%;
+            background: rgba(0,0,0,0.7);
+            z-index:-1;
+        }
+
+        #mainPage {
+            display: none;
+        }
+
+        body.main-page {
+            background: url('https://images.unsplash.com/photo-1503376780353-7e6692767b70') no-repeat center center fixed;
+            background-size: cover;
+        }
+        body.main-page::before {
+            content: "";
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.7);
+            z-index: -1;
+        }
+        header {
+            text-align: center;
+            padding: 30px;
+            background: rgba(0,0,0,0.8);
+        }
+        section {
+            padding: 20px;
+        }
+        h2 {
+            border-bottom: 2px solid white;
+        }
+        .car-card {
+            background: rgba(255,255,255,0.95);
+            color: black;
+            padding: 15px;
+            border-radius: 10px;
+            width: 260px;
+            box-shadow: 0 0 10px black;
+            transition: transform 0.3s;
+        }
+        .car-card:hover {
+            transform: scale(1.05);
+        }
+        .car-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+        .form-section {
+            background: rgba(255,255,255,0.95);
+            color: black;
+            padding: 10px;
+            border-radius: 10px;
+        }
+        input, button {
+            width: 50%;
+            padding: 4px;
+            margin-bottom: 5px;
+        }
+        button {
+            background: black;
+            color: white;
+            border: none;
+        }
+        button:hover {
+            background: #444;
+        }
+        footer {
+            text-align: center;
+            padding: 15px;
+            background: rgba(0,0,0,0.8);
+            margin-top: 20px;
+        }
+    </style>
+</head>
+
+<body>
+
+<div id="landing">
+    <h1>CYRI DRIVE CO.</h1>
+    <p>Your Trusted Car Rental Services</p>
+    <button onclick="showMainPage()">Choose The Car You Desire</button>
+</div>
+
+<div id="mainPage">
+
+<header>
+    <h1>CYRI DRIVE CO.</h1>
+    <p>Your Trusted Car Rental Services</p>
+</header>
+
+<section>
+    <h2>Available Cars</h2>
+
+    <div class="category">
+        <h3>SEDAN</h3>
+        <div class="car-container">
+
+            <div class="car-card">
+                <h4>Toyota Vios</h4>
+                <p><b>Price:</b> ₱1,500/day</p>
+                <p>Engine: 1.3L<br>Transmission: Automatic<br>Seats: 5<br>Fuel: Gasoline</p>
+                <button onclick="selectCar('Toyota Vios',1500)">Rent</button>
+            </div>
+
+            <div class="car-card">
+                <h4>Mitsubishi Mirage</h4>
+                <p><b>Price:</b> ₱1,400/day</p>
+                <p>Engine: 1.2L<br>Transmission: Manual<br>Seats: 5<br>Fuel: Gasoline</p>
+                <button onclick="selectCar('Mitsubishi Mirage',1400)">Rent</button>
+            </div>
+
+            <div class="car-card">
+                <h4>Nissan Sentra</h4>
+                <p><b>Price:</b> ₱1,700/day</p>
+                <p>Engine: 1.6L<br>Transmission: Automatic<br>Seats: 5<br>Fuel: Gasoline</p>
+                <button onclick="selectCar('Nissan Sentra',1700)">Rent</button>
+            </div>
+
+            <div class="car-card">
+                <h4>Suzuki Desire</h4>
+                <p><b>Price:</b> ₱1,300/day</p>
+                <p>Engine: 1.2L<br>Transmission: Manual<br>Seats: 5<br>Fuel: Gasoline</p>
+                <button onclick="selectCar('Suzuki Desire',1300)">Rent</button>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="category">
+        <h3>SUV</h3>
+        <div class="car-container">
+
+            <div class="car-card">
+                <h4>Toyota Fortuner</h4>
+                <p><b>Price:</b> ₱3,000/day</p>
+                <p>Engine: 2.4L Diesel<br>Transmission: Automatic<br>Seats: 7<br>Fuel: Diesel</p>
+                <button onclick="selectCar('Toyota Fortuner',3000)">Rent</button>
+            </div>
+
+            <div class="car-card">
+                <h4>Ford Everest</h4>
+                <p><b>Price:</b> ₱3,200/day</p>
+                <p>Engine: 2.0L Diesel<br>Transmission: Automatic<br>Seats: 7<br>Fuel: Diesel</p>
+                <button onclick="selectCar('Ford Everest',3200)">Rent</button>
+            </div>
+
+            <div class="car-card">
+                <h4>Nissan Terra</h4>
+                <p><b>Price:</b> ₱3,100/day</p>
+                <p>Engine: 2.5L Diesel<br>Transmission: Automatic<br>Seats: 7<br>Fuel: Diesel</p>
+                <button onclick="selectCar('Nissan Terra',3100)">Rent</button>
+            </div>
+
+            <div class="car-card">
+                <h4>Mitsubishi Montero</h4>
+                <p><b>Price:</b> ₱3,000/day</p>
+                <p>Engine: 2.4L Diesel<br>Transmission: Automatic<br>Seats: 7<br>Fuel: Diesel</p>
+                <button onclick="selectCar('Mitsubishi Montero',3000)">Rent</button>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="category">
+        <h3>PICKUP TRUCKS</h3>
+        <div class="car-container">
+
+            <div class="car-card">
+                <h4>Toyota Hilux</h4>
+                <p><b>Price:</b> ₱2,800/day</p>
+                <p>Engine: 2.4L Diesel<br>Transmission: Manual<br>Seats: 5<br>Fuel: Diesel</p>
+                <button onclick="selectCar('Toyota Hilux',2800)">Rent</button>
+            </div>
+
+            <div class="car-card">
+                <h4>Nissan Navara</h4>
+                <p><b>Price:</b> ₱2,900/day</p>
+                <p>Engine: 2.5L Diesel<br>Transmission: Automatic<br>Seats: 5<br>Fuel: Diesel</p>
+                <button onclick="selectCar('Nissan Navara',2900)">Rent</button>
+            </div>
+
+            <div class="car-card">
+                <h4>Ford Raptor</h4>
+                <p><b>Price:</b> ₱4,000/day</p>
+                <p>Engine: 2.0L Bi-Turbo<br>Transmission: Automatic<br>Seats: 5<br>Fuel: Diesel</p>
+                <button onclick="selectCar('Ford Raptor',4000)">Rent</button>
+            </div>
+
+            <div class="car-card">
+                <h4>Mitsubishi Strada</h4>
+                <p><b>Price:</b> ₱2,700/day</p>
+                <p>Engine: 2.4L Diesel<br>Transmission: Manual<br>Seats: 5<br>Fuel: Diesel</p>
+                <button onclick="selectCar('Mitsubishi Strada',2700)">Rent</button>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="category">
+        <h3>VANS</h3>
+        <div class="car-container">
+
+            <div class="car-card">
+                <h4>Toyota Hiace</h4>
+                <p><b>Price:</b> ₱3,500/day</p>
+                <p>Engine: 2.8L Diesel<br>Transmission: Manual<br>Seats: 15<br>Fuel: Diesel</p>
+                <button onclick="selectCar('Toyota Hiace',3500)">Rent</button>
+            </div>
+
+            <div class="car-card">
+                <h4>Nissan Urvan</h4>
+                <p><b>Price:</b> ₱3,400/day</p>
+                <p>Engine: 2.5L Diesel<br>Transmission: Manual<br>Seats: 15<br>Fuel: Diesel</p>
+                <button onclick="selectCar('Nissan Urvan',3400)">Rent</button>
+            </div>
+
+            <div class="car-card">
+                <h4>Mercedes Benz V Class</h4>
+                <p><b>Price:</b> ₱5,000/day</p>
+                <p>Engine: 2.0L Turbo<br>Transmission: Automatic<br>Seats: 7<br>Fuel: Diesel</p>
+                <button onclick="selectCar('Mercedes Benz V Class',5000)">Rent</button>
+            </div>
+
+            <div class="car-card">
+                <h4>Ford Transit</h4>
+                <p><b>Price:</b> ₱3,600/day</p>
+                <p>Engine: 2.2L Diesel<br>Transmission: Manual<br>Seats: 15<br>Fuel: Diesel</p>
+                <button onclick="selectCar('Ford Transit',3600)">Rent</button>
+            </div>
+
+        </div>
+    </div>
+
+</section>
+
+<section class="form-section">
+    <h2>Book a Car</h2>
+    <form onsubmit="return confirmBooking()">
+        <input type="text" id="name" placeholder="Your Name" required>
+        <input type="text" id="car" placeholder="Selected Car" readonly required>
+        <input type="number" id="price" placeholder="Price per Day" readonly>
+        <input type="number" id="days" placeholder="Number of Days" required>
+        <button type="submit">Confirm Booking</button>
+    </form>
+    <h3 id="result"></h3>
+</section>
+
+<footer>
+    <p>© 2026 CYRI DRIVE CO. | All Rights Reserved</p>
+</footer>
+
+</div>
+
+<script>
+function showMainPage(){
+    document.getElementById("landing").style.display="none";
+    document.getElementById("mainPage").style.display="block";
+    document.body.classList.add("main-page");
+}
+
+function selectCar(carName, price){
+    document.getElementById("car").value = carName;
+    document.getElementById("price").value = price;
+    window.scrollTo(0, document.body.scrollHeight);
+}
+
+function confirmBooking(){
+    let name = document.getElementById("name").value;
+    let car = document.getElementById("car").value;
+    let price = document.getElementById("price").value;
+    let days = document.getElementById("days").value;
+
+    let total = price * days;
+
+    document.getElementById("result").innerHTML =
+        "Thank you " + name + "! You booked " + car +
+        " for " + days + " day(s). Total Payment: ₱" + total;
+
+    return false;
+}
+</script>
+
+</body>
+</html>
